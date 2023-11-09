@@ -35,16 +35,16 @@ function clock(){
     switch (hours) {
       //Check for the hour value, change the output to it's respecive meridiem value and prepend the number 0 to it.
       case 13: hours="0"+1;break;
-        case 14: hours="0"+2;break;
-          case 15: hours="0"+3;break;
-            case 16: hours="0"+4;break;
-              case 17: hours="0"+5;break;
-                case 18: hours="0"+6;break;
-                  case 19: hours="0"+7;break;
-                   case 20: hours="0"+8;break;
-                     case 21: hours="0"+9;break;
-                      case 22: hours=10;break;
-                        case 23: hours=11;break;
+      case 14: hours="0"+2;break;
+      case 15: hours="0"+3;break;
+      case 16: hours="0"+4;break;
+      case 17: hours="0"+5;break;
+      case 18: hours="0"+6;break;
+      case 19: hours="0"+7;break;
+      case 20: hours="0"+8;break;
+      case 21: hours="0"+9;break;
+      case 22: hours=10;break;
+      case 23: hours=11;break;
     }
 
     //assigning the values of hour and minute to elements in the DOM
