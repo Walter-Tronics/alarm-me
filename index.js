@@ -1,16 +1,18 @@
-//Selecting all elements
-let hour = document.getElementById("hours"), 
-minute = document.getElementById("minutes"), 
-indicator = document.getElementById("indicator"),
-startBtn = document.querySelector("#start-alarm"),
-stopBtn = document.querySelector("#stop-alarm"),
-interval,
-tone = document.querySelector("audio"),
-alarmVal = document.getElementById("time"),
-alertText = document.querySelector("#alertText");
+window.onload = () => {
 
-
-
+  //Selecting all elements
+  let hour = document.getElementById("hours"), 
+  minute = document.getElementById("minutes"), 
+  indicator = document.getElementById("indicator"),
+  startBtn = document.querySelector("#start-alarm"),
+  stopBtn = document.querySelector("#stop-alarm"),
+  interval,
+  tone = document.querySelector("audio"),
+  alarmVal = document.getElementById("time"),
+  alertText = document.querySelector("#alertText");
+  
+  
+  
   //Setting the current time function
   function clock(){
     //initializing the current time
@@ -133,3 +135,5 @@ alertText = document.querySelector("#alertText");
   if (alarmVal.value != undefined) {
     alarmVal.value = localStorage.getItem("alarmTime");
   }
+
+}
