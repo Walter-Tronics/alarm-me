@@ -9,9 +9,11 @@ tone = document.querySelector("audio"),
 alarmVal = document.getElementById("time"),
 alertText = document.querySelector("#alertText");
 
-//Setting the current time function
-function clock(){
-  //initializing the current time
+
+
+  //Setting the current time function
+  function clock(){
+    //initializing the current time
     let t = new Date();
     let hours = t.getHours();
     let mins = t.getMinutes();
@@ -19,19 +21,21 @@ function clock(){
     //Setting the Post meridiem when the time is after noon
     if (hours>=12) {
       indicator.innerText="PM";
-    }//Setting the ante meridiem when the time is before noon
-    else{indicator.innerText="AM";}
+    }
+    //Setting the ante meridiem when the time is before noon
+    else indicator.innerText="AM";
 
     //When hour is less than 10, prepend the mumber 0 to it
     if (hours<10){
-        hours = `0${hours}`;
-      }
+      hours = `0${hours}`;
+    }
 
     //When minutes is less than 10, prepend the number 0 to it.
     if (mins<10){
-        mins = `0${mins}`;
-      }
-      //I know it's probably shorter to use arithmetic evaluation to get this part of the code but I wanted to try out the switch statement, haven't used it before.
+      mins = `0${mins}`;
+    }
+
+    //I know it's probably shorter to use arithmetic evaluation to get this part of the code but I wanted to try out the switch statement, haven't used it before.
     switch (hours) {
       //Check for the hour value, change the output to it's respecive meridiem value and prepend the number 0 to it.
       case 13: hours="0"+1;break;
@@ -54,6 +58,8 @@ function clock(){
 
   //Updating the time values in the DOM by every 1 second
   setInterval(clock,1000);
+
+
 
   //initializing the alarm function
   function checkAlarm() {
@@ -82,6 +88,7 @@ function clock(){
     }
   }
 
+
   //Starting the alarm
   startBtn.addEventListener("click", ()=>{
     //If the Time value is not empty, then start the alarm
@@ -100,6 +107,7 @@ function clock(){
     }
   });
 
+
   //Stoping the alarm check and the alarm
   stopBtn.addEventListener("click", ()=>{
     //Getting and showing the alarm alert
@@ -114,6 +122,7 @@ function clock(){
       alertText.style.opacity = 0;
     }, 1500);
   });
+
 
   //When user input the desired time, create and hold a storage of that time value
   alarmVal.addEventListener("input", ()=>{
