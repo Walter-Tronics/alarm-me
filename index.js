@@ -5,7 +5,7 @@ indicator = document.getElementById("indicator"),
 startBtn = document.querySelector("#start-alarm"),
 stopBtn = document.querySelector("#stop-alarm"),
 interval,
-tone = document.getElementById("tone"),
+tone = document.querySelector("audio"),
 alarmVal = document.getElementById("time"),
 alertText = document.querySelector("#alertText");
 
@@ -108,13 +108,11 @@ function clock(){
     //Stoping the alarm check and pause the tone
     clearInterval(interval);
     tone.pause();
+    tone.currentTime = 0;
     //Removing the alarm alert box after shown for some time
     setTimeout(()=>{
       alertText.style.opacity = 0;
     }, 1500);
-    setTimeout(()=>{
-      location.reload();
-    }, 2000);
   });
 
   //When user input the desired time, create and hold a storage of that time value
