@@ -1,0 +1,148 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto+Mono:wght@500&display=swap');
+
+:root {
+    --primary-light: #8abdff;
+    --primary: #6d5dfc;
+    --primary-dark: #5b0eeb;
+    --white: #FFFFFF;
+    --greyLight-1: #E4EBF5;
+    --greyLight-2: #c8d0e7;
+    --greyLight-3: #bec8e4;
+    --greyDark: #9baacf;
+    --softred: #f47174;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    max-height: 100vh;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background: var(--greyLight-1);
+    display: grid;
+    place-items: center;
+}
+#cont{
+    border-bottom: 5px solid var(--primary);
+    border-top: 5px solid var(--primary);
+    border-radius: 10px;
+    width: min(95%,300px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 10px 20px 10px;
+    background-color: #e0e0e0;
+}
+#clock{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+	box-shadow:
+	  20px 20px 60px #bebebe,
+	  -20px -20px 60px #ffffff;
+      margin-bottom: 40px;
+      position: relative;
+}
+#hours,#divider,#minutes,#indicator{
+    font-family: 'Lilita One', cursive;
+    background-color: #000;
+    font-size: 5rem;
+    margin: 3px;
+    color: transparent;
+    text-shadow: 0px 2px 3px var(--softred);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+#divider{
+    font-size: 4rem;
+}
+#indicator{
+    position: absolute;
+    bottom: -5px;
+    right: 40px;
+    font-size: 1.5rem;
+    color: black;
+    color: transparent;
+    text-shadow: 0px 2px 3px lightgray;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+#alertText{
+    position: absolute;
+    top: 50%;
+    border-radius: 5px;
+    opacity: 0;
+    transition: .5s;
+    background-color: var(--white);
+    color: var(--primary-dark);
+    font-weight: bold;
+    font-size: 1rem;
+    width: fit-content;
+    padding: 3px 5px;
+    box-shadow:
+    0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 18px 0px rgba(0,0,0,.12);
+}
+#alarm{
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border: none;
+    border-bottom: 2px solid var(--primary);
+    margin-bottom: 40px;
+    position: relative;
+}
+#alarm input{
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid var(--primary);
+    padding: 10px;
+    padding-bottom: 0;
+    font-size: 1.5rem;
+    color: var(--primary);
+    background-color: transparent;
+    text-align: center;
+    outline: none;
+    text-shadow: 0px 2px 3px var(--greyLight-3);
+}
+#alarm label{
+    position: absolute;
+    bottom: -20px;
+    color: grey;
+    transform: translateX(-100%);
+    font-family: 'Roboto Mono', monospace;
+}
+#buttons{
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+}
+#buttons button{
+    width: 40%;
+    border: 0;
+    background: var(--primary-dark);
+    padding: 5px;
+    color: var(--white);
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto Mono', monospace;
+    box-shadow:inset .2rem .2rem 1rem var(--primary-light), 
+              inset -.2rem -.2rem 1rem var(--primary-dark),
+              .3rem .3rem .3rem var(--greyLight-2);
+}
+#buttons button:active{
+    background: var(--primary);
+    box-shadow: inset .2rem .2rem .5rem darkslategray, 
+inset -.2rem -.2rem .5rem darkslategray;
+}
