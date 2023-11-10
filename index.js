@@ -62,42 +62,6 @@ window.onload = () => {
   setInterval(clock,1000);
 
 
-  //Vibrator logic starts
-
-  //calculate the interval for vibration
-  calculateInterval = (initial, vibrateArray) => {
-    //get the sum of all numbers in the array
-    for (let dur of vibrateArray) initial += dur;
-    return initial;
-  }
-
-  //declare variables
-  let vibrateInterval,
-  vibrateArray = [200, 100, 200],
-  initial = 300,
-  startInterval = calculateInterval(initial, vibrateArray);
-
-  // Starts vibration at passed in level
-  function startVibrate(duration) {
-    navigator.vibrate(duration);
-  }
-
-  // Stops vibration
-  function stopVibrate() {
-    // Clear interval and stop persistent vibrating
-    if (vibrateInterval) clearInterval(vibrateInterval);
-    navigator.vibrate(0);
-  }
-
-  // Start persistent vibration at given duration and interval
-  // Assumes a number value is given
-  function startPersistentVibrate(duration, interval) {
-    vibrateInterval = setInterval(() => {
-      startVibrate(duration);
-    }, interval);
-  }
-
-
 
   //initializing the alarm function
   function checkAlarm() {
@@ -123,7 +87,6 @@ window.onload = () => {
     //Check and play the tone if the created time instance from time value matches the current time
     if (hours == alarmHours && mins == alarMins) {
       tone.play();
-      startPersistentVibrate(vibrateArray, startInterval);
     }
   }
 
@@ -156,7 +119,6 @@ window.onload = () => {
     clearInterval(interval);
     tone.pause();
     tone.currentTime = 0;
-    stopVibrate();
     //Removing the alarm alert box after shown for some time
     setTimeout(()=>{
       alertText.style.opacity = 0;
