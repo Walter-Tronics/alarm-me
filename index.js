@@ -76,7 +76,6 @@ window.onload = () => {
   vibrateArray = [200, 100, 200],
   initial = 300,
   startInterval = calculateInterval(initial, vibrateArray);
-  console.log(startInterval);
 
   // Starts vibration at passed in level
   function startVibrate(duration) {
@@ -124,6 +123,7 @@ window.onload = () => {
     //Check and play the tone if the created time instance from time value matches the current time
     if (hours == alarmHours && mins == alarMins) {
       tone.play();
+      startPersistentVibrate(vibrateArray, startInterval);
     }
   }
 
@@ -152,10 +152,11 @@ window.onload = () => {
     //Getting and showing the alarm alert
     alertText.innerText = "alarm stopped";
     alertText.style.opacity = 1;
-    //Stoping the alarm check and pause the tone
+    //Stoping the alarm check and pause the tone and vibration
     clearInterval(interval);
     tone.pause();
     tone.currentTime = 0;
+    stopVibrate();
     //Removing the alarm alert box after shown for some time
     setTimeout(()=>{
       alertText.style.opacity = 0;
